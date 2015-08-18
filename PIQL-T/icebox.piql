@@ -1,0 +1,511 @@
+//
+/////// ICEBOX - Repository for audiences that are not in production and/or have continuously failed testing in beta ///////
+///////BETA dining
+///////BETA dining
+///////BETA dining
+///////BETA dining
+///////BETA dining
+///////BETA dining
+//Ethnic Dining//12AM to 12PM
+//RULE Dining->Ethnic_Restaurants
+//[TIME_PERIODS:  6, 7, 9, 11, 12, 14, 16, 17, 19, 20, 21, 22, 27, 28, 31, 32]
+//[TAXONOMY: piq]
+//{
+//	Businesses->Dining->Food_and_Drink->Ethnic > .001 = Businesses->Dining->Food_and_Drink->Ethnic / Total->Location;
+//	Businesses->Dining->Food_and_Drink->Ethnic->* > .001 = Businesses->Dining->Food_and_Drink->Ethnic->* / Total->Location;
+//	"Location Tags->cuisine->italian" > .001 = "Location Tags->cuisine->italian" / Total->Location;
+//	"Location Tags->cuisine->french" > .001 = "Location Tags->cuisine->french" / Total->Location;
+//	"Location Tags->cuisine->japanese" > .001 = "Location Tags->cuisine->japanese" / Total->Location;
+//	"Location Tags->cuisine->mexican" > .001 = "Location Tags->cuisine->mexican" / Total->Location;
+//	"Location Tags->cuisine->thai" > .001 = "Location Tags->cuisine->thai" / Total->Location;
+//	"Location Tags->cuisine->mediterranean" > .001 = "Location Tags->cuisine->mediterranean" / Total->Location;
+//	"Location Tags->cuisine->asian" > .001 = "Location Tags->cuisine->asian" / Total->Location;
+//	"Location Tags->cuisine->chinese" > .001 = "Location Tags->cuisine->chinese" / Total->Location;
+//	"Location Tags->cuisine->indian" > .001 = "Location Tags->cuisine->indian" / Total->Location;
+//	"Location Tags->cuisine->spanish" > .001 = "Location Tags->cuisine->spanish" / Total->Location;
+//	"Location Tags->cuisine->sushi" > .001 = "Location Tags->cuisine->sushi" / Total->Location;
+//	"Location Tags->cuisine->greek" > .001 = "Location Tags->cuisine->greek" / Total->Location;
+//	"Location Tags->cuisine->vietnamese" > .001 = "Location Tags->cuisine->vietnamese" / Total->Location;
+//	"Location Tags->cuisine->brazilian" > .001 = "Location Tags->cuisine->brazilian" / Total->Location;
+//	"Location Tags->cuisine->korean" > .001 = "Location Tags->cuisine->korean" / Total->Location;
+//	"Location Tags->cuisine->latin-american" > .001 = "Location Tags->cuisine->latin-american" / Total->Location;
+//	"Location Tags->cuisine->hawaiian" > .001 = "Location Tags->cuisine->hawaiian" / Total->Location;
+//	"Location Tags->cuisine->cuban" > .001 = "Location Tags->cuisine->cuban" / Total->Location;
+//	"Location Tags->cuisine->creole" > .001 = "Location Tags->cuisine->creole" / Total->Location;
+//	"Location Tags->cuisine->southern-american" > .001 = "Location Tags->cuisine->southern-american" / Total->Location;
+//	"Location Tags->cuisine->lebanese" > .001 = "Location Tags->cuisine->lebanese" / Total->Location;
+//	"Location Tags->cuisine->peruvian" > .001 = "Location Tags->cuisine->peruvian" / Total->Location;
+//	"Location Tags->cuisine->international" > .001 = "Location Tags->cuisine->international" / Total->Location;
+//	"Location Tags->cuisine->german" > .001 = "Location Tags->cuisine->german" / Total->Location;
+//	"Location Tags->cuisine->turkish" > .001 = "Location Tags->cuisine->turkish" / Total->Location;
+//	"Location Tags->cuisine->caribbean" > .001 = "Location Tags->cuisine->caribbean" / Total->Location;
+//	"Location Tags->cuisine->moroccan" > .001 = "Location Tags->cuisine->moroccan" / Total->Location;
+//	"Location Tags->cuisine->pacific-rim" > .001 = "Location Tags->cuisine->pacific-rim" / Total->Location;
+//	"Location Tags->cuisine->latin american" > .001 = "Location Tags->cuisine->latin american" / Total->Location;
+//	"Location Tags->cuisine->argentinian" > .001 = "Location Tags->cuisine->argentinian" / Total->Location;
+//	"Location Tags->cuisine->cajun" > .001 = "Location Tags->cuisine->cajun" / Total->Location;
+//	"Location Tags->cuisine->ethiopian" > .001 = "Location Tags->cuisine->ethiopian" / Total->Location;
+//	"Location Tags->cuisine->austrian" > .001 = "Location Tags->cuisine->austrian" / Total->Location;
+//	"Location Tags->cuisine->middle eastern" > .001 = "Location Tags->cuisine->middle eastern" / Total->Location;
+//	"Location Tags->cuisine->russian" > .001 = "Location Tags->cuisine->russian" / Total->Location;
+//	"Location Tags->cuisine->nuevo-latino" > .001 = "Location Tags->cuisine->nuevo-latino" / Total->Location;
+//	"Location Tags->cuisine->middle-eastern" > .001 = "Location Tags->cuisine->middle-eastern" / Total->Location;
+//	"Location Tags->cuisine->afghani " > .001 = "Location Tags->cuisine->afghani " / Total->Location;
+//}
+//Upscale Dining Dinner//Sat 5PM to 8PM Sun 7PM to 8PM M-F 530PM to 8PM
+//RULE Dining->Dinner->Upscale_Restaurants
+//[TIME_PERIODS: 6, 11, 21, 22, 28, 32]
+//[TAXONOMY: piq]
+//{
+//	"Location Tags->recommended->michelin-guide"  > .001 =  "Location Tags->recommended->michelin-guide"  / Total->Location;
+//	"Location Tags->reviewed->zagat-guide"  > .001 =  "Location Tags->reviewed->zagat-guide" / Total->Location;
+//}
+//Michelin Guide Recommended Dining//12AM to 12PM
+//RULE Dining->Upscale_Restaurants->Michelin_Guide_Recommended
+//[TIME_PERIODS:  6, 7, 9, 11, 12, 14, 16, 17, 19, 20, 21, 22, 27, 28, 31, 32]
+//[TAXONOMY: piq]
+//{
+//	"Location Tags->recommended->michelin-guide"  > .001 =  "Location Tags->recommended->michelin-guide"  / Total->Location;
+//}
+//FoodPhotos//12AM to 12PM
+//RULE Dining->Photo_Tags->Foodspotting_FoodPorn
+//[TIME_PERIODS:  6, 7, 9, 11, 12, 14, 16, 17, 19, 20, 21, 22, 27, 28, 31, 32]
+//[TAXONOMY: piq]
+//{
+//	"Photo Tags->tags->foodporn"  > .001 =  "Photo Tags->tags->foodporn"  / "Social Busyness->Photos";
+//	"Photo Tags->tags->foodspotting"  > .001 =  "Photo Tags->tags->foodspotting"  / "Social Busyness->Photos";
+//}
+//Upscale Dining//12AM to 12PM
+//RULE Dining->Upscale_Restaurants
+//[TIME_PERIODS:  6, 7, 9, 11, 12, 14, 16, 17, 19, 20, 21, 22, 27, 28, 31, 32]
+//[TAXONOMY: piq]
+//{
+//	"Location Tags->recommended->michelin-guide"  > .001 =  "Location Tags->recommended->michelin-guide"  / Total->Location;
+//	"Location Tags->reviewed->zagat-guide"  > .001 =  "Location Tags->reviewed->zagat-guide" / Total->Location;
+//}
+//Ponderosa Customer//12AM to 12PM
+//RULE Dining->Casual_Restaurants->Ponderosa
+//[TIME_PERIODS:  6, 7, 9, 11, 12, 14, 16, 17, 19, 20, 21, 22, 27, 28, 31, 32]
+//[TAXONOMY: piq]
+//{
+//	"Location Tags->chain->ponderosa"  > .001 =  "Location Tags->chain->ponderosa"  / Total->Location;
+//}
+//Upscale Dining Lunch//12PM to 1PM
+//RULE Dining->Lunch->Upscale_Restaurants
+//[TIME_PERIODS: 6, 14, 19, 16]
+//[TAXONOMY: piq]
+//{
+//	"Location Tags->recommended->michelin-guide"  > .001 =  "Location Tags->recommended->michelin-guide"  / Total->Location;
+//	"Location Tags->reviewed->zagat-guide"  > .001 =  "Location Tags->reviewed->zagat-guide" / Total->Location;
+//}
+//Coffee Shops//6AM to midnight
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for Dining->Coffee {
+    use time_periods Mon--Sun 06:00--00:00;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield piq->Businesses->Dining->Daylife->Coffee_Tea->Coffee_Shops;
+}
+
+//
+///////BETA financial services
+///////BETA financial services
+///////BETA financial services
+///////BETA financial services
+///////BETA financial services
+///////BETA financial services
+//Allstate Customer//Sat 9AM-1PM, Mon-Fri 8:30AM-6:30PM
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for Financial_Services->Insurance->Allstate {
+    use time_periods Mon--Fri 13:00--18:30, Mon--Fri 08:30--12:00, Sat 09:00--13:00;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield "piq->Location Tags->chain->allstate";
+}
+
+//
+//American_Family Customer//Sat 9AM-1PM, Mon-Fri 8:30AM-6:30PM
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for Financial_Services->Insurance->American_Family {
+    use time_periods Mon--Fri 13:00--18:30, Mon--Fri 08:30--12:00, Sat 09:00--13:00;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield "piq->Location Tags->chain->american-family-insurance";
+}
+
+//
+//Auto Owners Insurance Customer//Sat 9AM-1PM, Mon-Fri 8:30AM-6:30PM
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for Financial_Services->Insurance->Auto_Owners_Insurance {
+    use time_periods Mon--Fri 13:00--18:30, Mon--Fri 08:30--12:00, Sat 09:00--13:00;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield "piq->Location Tags->chain->auto-owners-insurance";
+}
+
+//
+//Erie Customer//Sat 9AM-1PM, Mon-Fri 8:30AM-6:30PM
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for Financial_Services->Insurance->Erie {
+    use time_periods Mon--Fri 13:00--18:30, Mon--Fri 08:30--12:00, Sat 09:00--13:00;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield "piq->Location Tags->chain->erie-insurance";
+}
+
+//
+//Farmers Customer//Sat 9AM-1PM, Mon-Fri 8:30AM-6:30PM
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for Financial_Services->Insurance->Farmers {
+    use time_periods Mon--Fri 13:00--18:30, Mon--Fri 08:30--12:00, Sat 09:00--13:00;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield "piq->Location Tags->chain->farmers-insurance";
+}
+
+//
+//Geico Customer//Sat 9AM-1PM, Mon-Fri 8:30AM-6:30PM
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for Financial_Services->Insurance->Geico {
+    use time_periods Mon--Fri 13:00--18:30, Mon--Fri 08:30--12:00, Sat 09:00--13:00;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield "piq->Location Tags->chain->geico";
+}
+
+//
+//Liberty Customer//Sat 9AM-1PM, Mon-Fri 8:30AM-6:30PM
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for Financial_Services->Insurance->Liberty {
+    use time_periods Mon--Fri 13:00--18:30, Mon--Fri 08:30--12:00, Sat 09:00--13:00;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield "piq->Location Tags->chain->liberty-mutual";
+}
+
+//
+//Mercury Customer//Sat 9AM-1PM, Mon-Fri 8:30AM-6:30PM
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for Financial_Services->Insurance->Mercury {
+    use time_periods Mon--Fri 13:00--18:30, Mon--Fri 08:30--12:00, Sat 09:00--13:00;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield "piq->Location Tags->chain->mercury-insurance";
+}
+
+//
+//Metlife Customer//Sat 9AM-1PM, Mon-Fri 8:30AM-6:30PM
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for Financial_Services->Insurance->MetLife {
+    use time_periods Mon--Fri 13:00--18:30, Mon--Fri 08:30--12:00, Sat 09:00--13:00;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield "piq->Location Tags->chain->metlife-insurance";
+}
+
+//
+//Nationwide Customer//Sat 9AM-1PM, Mon-Fri 8:30AM-6:30PM
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for Financial_Services->Insurance->Nationwide {
+    use time_periods Mon--Fri 13:00--18:30, Mon--Fri 08:30--12:00, Sat 09:00--13:00;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield "piq->Location Tags->chain->nationwide-insurance";
+}
+
+//
+//National General Customer//Sat 9AM-1PM, Mon-Fri 8:30AM-6:30PM
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for Financial_Services->Insurance->National_General {
+    use time_periods Mon--Fri 13:00--18:30, Mon--Fri 08:30--12:00, Sat 09:00--13:00;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield "piq->Location Tags->chain->national-general";
+}
+
+//
+//Safeco Customer//Sat 9AM-1PM, Mon-Fri 8:30AM-6:30PM
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for Financial_Services->Insurance->Safeco {
+    use time_periods Mon--Fri 13:00--18:30, Mon--Fri 08:30--12:00, Sat 09:00--13:00;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield "piq->Location Tags->chain->safeco-insurance";
+}
+
+//
+//StateFarm Customer//Sat 9AM-1PM, Mon-Fri 8:30AM-6:30PM
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for Financial_Services->Insurance->StateFarm {
+    use time_periods Mon--Fri 13:00--18:30, Mon--Fri 08:30--12:00, Sat 09:00--13:00;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield "piq->Location Tags->chain->state-farm-insurance";
+}
+
+//
+//Travelers Customer//Sat 9AM-1PM, Mon-Fri 8:30AM-6:30PM
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for Financial_Services->Insurance->Travelers {
+    use time_periods Mon--Fri 13:00--18:30, Mon--Fri 08:30--12:00, Sat 09:00--13:00;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield "piq->Location Tags->chain->travelers-insurance";
+}
+
+//
+// Customer//Sat 9AM-1PM, Mon-Fri 8:30AM-6:30PM
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for Financial_Services->Tax->Liberty_Tax {
+    use time_periods Mon--Fri 13:00--18:30, Mon--Fri 08:30--12:00, Sat 09:00--13:00;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield "piq->Location Tags->chain->liberty-tax";
+}
+
+//
+// Customer//Sat 9AM-1PM, Mon-Fri 8:30AM-6:30PM
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for Financial_Services->Tax->HR_Block {
+    use time_periods Mon--Fri 13:00--18:30, Mon--Fri 08:30--12:00, Sat 09:00--13:00;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield "piq->Location Tags->chain->hr-block";
+}
+
+//
+// Customer//Sat 9AM-1PM, Mon-Fri 8:30AM-6:30PM
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for Financial_Services->Tax->Jackson_Hewitt {
+    use time_periods Mon--Fri 13:00--18:30, Mon--Fri 08:30--12:00, Sat 09:00--13:00;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield "piq->Location Tags->chain->jackson-hewitt";
+}
+
+//
+// Mon-Fri 8:30AM-5:30PM
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for Educational_Institution->High_School {
+    use time_periods Mon--Fri 08:30--17:30;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield piq->Educational_Institution->K12->High_School;
+}
+
+//
+///////BETA hotels
+///////BETA hotels
+///////BETA hotels
+///////BETA hotels
+///////BETA hotels
+///////BETA hotels
+//Clarion CustomerAll time periods except weekends after midnight, weekday overnight
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for Travel->Hotels->Choice_Hotels->Clarion {
+    use time_periods Mon--Fri 06:00--00:00, Sat--Sun 02:00--00:00;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield "piq->Location Tags->chain->clarion";
+}
+
+//
+//Cambria Suites CustomerAll time periods except weekends after midnight, weekday overnight
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for Travel->Hotels->Choice_Hotels->Cambria_Suites {
+    use time_periods Mon--Fri 06:00--00:00, Sat--Sun 02:00--00:00;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield "piq->Location Tags->chain->cambria-suites";
+}
+
+//
+//Marriott Vacation Club Customer - All time periods except weekends after midnight, weekday overnight
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for Travel->Hotels->Marriott->Marriott_Vacation_Club {
+    use time_periods Mon--Fri 06:00--00:00, Sat--Sun 02:00--00:00;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield "piq->Location Tags->chain->marriott-vacation-club";
+}
+
+//
+//Marriot Conference Center Customer - All time periods except weekends after midnight, weekday overnight
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for Travel->Hotels->Marriott->Marriott_Conference_Centers {
+    use time_periods Mon--Fri 06:00--00:00, Sat--Sun 02:00--00:00;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield "piq->Location Tags->chain->marriott-conference-center";
+}
+
+//
+//Radisson park inn Customer - All time periods except weekends after midnight, weekday overnight
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for Travel->Hotels->Carlson->Park_Inn_by_Radisson {
+    use time_periods Mon--Fri 06:00--00:00, Sat--Sun 02:00--00:00;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield "piq->Location Tags->chain->park-inn";
+}
+
+//
+//Radisson blu Customer - All time periods except weekends after midnight, weekday overnight
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for Travel->Hotels->Carlson->Radisson_blu {
+    use time_periods Mon--Fri 06:00--00:00, Sat--Sun 02:00--00:00;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield "piq->Location Tags->chain->radisson-blu";
+}
+
+//
+//IHG Holiday Inn Club Vacations Hotels Customers - All time periods except weekends aftermidnight, weekday overnight
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for Travel->Hotels->IHG->Holiday_Inn_Club_Vacations {
+    use time_periods Mon--Fri 06:00--00:00, Sat--Sun 02:00--00:00;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield "piq->Location Tags->chain->holiday-inn-club-vacations";
+}
+
+//
+//Extended Stay America Customers - All time periods except weekends aftermidnight, weekday overnight
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for Travel->Hotels->Extended_Stay_America->Extended_Stay_America {
+    use time_periods Mon--Fri 06:00--00:00, Sat--Sun 02:00--00:00;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield "piq->Location Tags->chain->extended-stay-america";
+}
+
+//
+//Park Hyatt Hotels Customers - All time periods except weekends aftermidnight, weekday overnight
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for Travel->Hotels->Hyatt->Park_Hyatt {
+    use time_periods Mon--Fri 06:00--00:00, Sat--Sun 02:00--00:00;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield "piq->Location Tags->chain->park-hyatt";
+}
+
+//
+//Park Hyatt Hotels Customers - All time periods except weekends aftermidnight, weekday overnight
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for Travel->Hotels->Hyatt->Hyatt_Hotels {
+    use time_periods Mon--Fri 06:00--00:00, Sat--Sun 02:00--00:00;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield "piq->Location Tags->chain->hyatt-hotels";
+}
+
+//
+///// Convenience Stores
+//Conoco 76 All Customers, all time periods
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for "Retail->Convenience_Stores->ConocoPhillips->76" {
+    use time_periods Mon--Sun 00:00--00:00;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield "piq->Location Tags->chain->76";
+}
+
+//
+///// Gyms
+//Curves Gym Customer, all time periods
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for Entertainment->Gyms->Curves {
+    use time_periods Mon--Thu 06:00--20:00, Fri--Sat 06:00--19:00, Sun 06:00--20:00;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield "piq->Location Tags->chain->curves";
+}
+
+//
+//<><><><><><><><> CLOTHING STORE RULES <><><><><><><><><>
+//H&M clothing All Customers, normal business hours time periods
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for Retail->Clothing_Stores->H_and_M {
+    use time_periods Mon--Fri 08:30--20:00, Sat 09:00--20:00, Sun 08:00--20:00;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield "piq->Location Tags->chain->h-and-m";
+}
+
+//
+//<><><><><><><><> FURNITURE STORE RULES <><><><><><><><><>
+//Mattress Firm All Customers, normal business hours time periods
+//
+// auto-generated by piql Translator on 2015-07-24T03:08:29-04:00
+//
+rulet for Retail->Furniture_and_Decor->MattressFirm {
+    use time_periods Mon--Fri 08:30--20:00, Sat 09:00--20:00, Sun 08:00--20:00;
+    use coverage_scoring threshold 0.001 denominator Total->Location;
+
+    yield "piq->Location Tags->chain->mattress-firm";
+}
+
